@@ -1,0 +1,21 @@
+def ord_piv(v,piv):
+    v1 = []
+    v2 = []
+    v3 = []
+    for i in range(len(v)-1):
+        if v[i] < piv:
+            v1.append(v[i])
+        if v[i] == piv:
+            v2.append(v[i])
+        if v[i] > piv:
+            v3.append(v[i])
+    q1 = len(v1)
+    q2 = q1 + len(v2)
+    for i  in range(len(v)-1):
+        if i < q1:
+            v[i] = (v1[i])
+        if i >= q1 and i < q2:
+            v[i] = (v2[i - q1])
+        if i >= q2:
+            v[i] = (v3[i - q2])
+    return (q1,q2)
