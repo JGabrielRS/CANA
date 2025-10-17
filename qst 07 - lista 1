@@ -1,6 +1,6 @@
 import math
 def busca_quarter(v,i,f,x):
-    if i == f or f == 0 or i > f:
+    if i > f:
         return "não está na lista"
     q2 = math.ceil((f + i)/2)
     q1 = math.ceil(q2/2)
