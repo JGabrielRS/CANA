@@ -1,10 +1,18 @@
 import math
 def busca_quarter(v,i,f,x):
     if i == f or f == 0 or i > f:
-        return x + "não está na lista"
+        return "não está na lista"
     q2 = math.ceil((f + i)/2)
     q1 = math.ceil(q2/2)
     q3 = math.ceil((q2 + (f + i))/2)
+    if q1 < i:
+        q1 = i
+    if q1 > f:
+        q1 = f
+    if q3 < i:
+        q3 = i
+    if q3 > f:
+        q3 = f
     if v[q1] == x:
         return q1
     if v[q2] == x:
@@ -19,6 +27,3 @@ def busca_quarter(v,i,f,x):
         return busca_quarter(v,q2+1,q3-1,x)
     if x > v[q1]:
         return busca_quarter(v,q1+1,q2-1,x)
-    
-a = [1,2,3,4,5,6,7,8,9,10]
-print(busca_quarter(a,0,len(a)-1,9))
