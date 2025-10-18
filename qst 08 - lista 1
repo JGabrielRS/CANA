@@ -1,0 +1,18 @@
+def busca_bin2(v,i,f,x):
+    while f >= i:
+        q = (i+f)//2
+        if q == 0 or q == len(v)-1:
+            return q
+        if v[q] == x:
+            while q-1 >= 0 and v[q-1] == x:
+                q = q-1
+            return q
+        if v[q] > x and v[q-1] < x:
+            return q
+        if v[q] < x and v[q+1] > x:
+            return q
+        if v[q] < x:
+            i = q+1
+        if v[q] > x:
+            f = q-1
+    return -1
